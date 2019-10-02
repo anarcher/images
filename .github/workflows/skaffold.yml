@@ -3,6 +3,7 @@ on:
   push:
     paths:
     - 'skaffold/**' 
+    - '.github/workflows/skaffold.yml'
 jobs:
   build: 
     runs-on: ubuntu-latest 
