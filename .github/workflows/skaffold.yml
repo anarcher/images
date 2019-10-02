@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build ./skaffold --file ./skaffold/Dockerfile --build-arg version=${VERSION} --tag docker.pkg.github.com/anarcher/images/skaffold:latest
+      run: docker build ./skaffold --file ./skaffold/Dockerfile --build-arg version=${VERSION} --tag docker.pkg.github.com/anarcher/images/skaffold:${VERSION}
       env: 
         VERSION: v0.39.0
