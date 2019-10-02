@@ -1,0 +1,13 @@
+name: Skaffold Image
+on: 
+  push:
+    paths:
+    - ./skaffold/ 
+jobs:
+  build: 
+    runs-on: ubuntu-latest 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build ./skaffold --file ./skaffold/Dockerfile --build-args version=${VERSION} --tag docker.pkg.github.com/anarcher/images/skaffold:latest
+      env: VERSION:v0.39.0
