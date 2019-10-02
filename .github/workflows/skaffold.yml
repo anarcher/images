@@ -5,11 +5,13 @@ on:
     - 'skaffold/**' 
     - '.github/workflows/skaffold.yml'
 jobs:
-  build: 
+  build-push: 
     runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
+    - name: Build skaffold image
       run: docker build ./skaffold --file ./skaffold/Dockerfile --build-arg version=${VERSION} --tag docker.pkg.github.com/anarcher/images/skaffold:${VERSION}
-      env: 
-        VERSION: v0.39.0
+    - name: Push skaffold image
+      run: docker push docker.pkg.github.com/anarcher/images/skaffold:${VERSION}
+    env: 
+      VERSION: v0.39.0
