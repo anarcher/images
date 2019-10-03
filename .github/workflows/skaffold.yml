@@ -17,5 +17,13 @@ jobs:
       run: docker push docker.pkg.github.com/anarcher/images/skaffold:${VERSION}
     - name: Logout github docker 
       run: docker logout docker.pkg.github.com
+    - name: Publish to Dockerhub 
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: anarcher/skaffold:${VERSION}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        dockerfile: skaffold/Dockerfile
+        workdir: skaffold/
     env: 
       VERSION: v0.39.0
