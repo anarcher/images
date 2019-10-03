@@ -23,7 +23,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         path: skaffold/
+        file: skaffold/Dockerfile
         repository: anarcher/skaffold
+        build_args: version=v0.39.0
         tags: v0.39.0
     env: 
       VERSION: v0.39.0
