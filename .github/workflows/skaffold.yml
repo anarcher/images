@@ -24,6 +24,6 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         path: skaffold/
         repository: anarcher/skaffold
-        tags: ${VERSION}
+        tags: v0.39.0
     env: 
       VERSION: v0.39.0
