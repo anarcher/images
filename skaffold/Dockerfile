@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM docker:stable
 
 RUN apk add --no-cache bash curl
 
